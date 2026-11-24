@@ -13,15 +13,16 @@ cask "bao" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :big_sur"
+  depends_on :macos
 
   app "Bao.app"
   binary "#{appdir}/Bao.app/Contents/MacOS/Bao", target: "bao"
 
   # Not notarized yet: clear the quarantine flag so the first launch isn't blocked.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Bao.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:         ["-dr", "com.apple.quarantine", "{{appdir}}/Bao.app"],
+        must_succeed: false
   end
 
   # Remove Claude Code hooks only if they point into this app (never a source install's).
