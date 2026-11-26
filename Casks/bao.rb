@@ -1,6 +1,6 @@
 cask "bao" do
-  version "0.2.0"
-  sha256 "b39bbfb7d8ae17b0c8bdd87d9e7d584e6952ce646b8b17e46d9465f2d2810955"
+  version "0.3.0"
+  sha256 "85f938fb2221be68a5dbcabc087c8e55288d34e7217ec782626d2648b93db8c7"
 
   url "https://github.com/suhailparad/bao-claude/releases/download/v#{version}/Bao-#{version}-arm64.dmg"
   name "Bao"
